@@ -14,8 +14,11 @@ export class AuthController {
     }
     return this.authService.login(user);
   }
-  
-
+  @Get('login')
+  loginGet() {
+    return { message: 'Please use POST method to login' };
+  }
+   
   @Post('register')
   async register(@Body() body: { username: string; email: string; password: string }) {
     return this.authService.register(body.username, body.email, body.password);
